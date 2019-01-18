@@ -88,14 +88,13 @@
             </div>
             <div class="contents">
                 <div class = "info">
-                    {% for data in prof_data %}
-                        <p>이름 : {{ data["ko_name"] }}</p>
-                        <p>영어이름 : {{ data["en_name"]}}</p>
-                        <p>지위 : {{ data["status"] }}</p>
-                        <p>연구실 : {{ data["location"] }}</p>
-                        <p>핸드폰번호 : {{ data["phone"] }}</p>
-                        <p>이메일 : {{ data["email"] }}</p>
-                    {% endfor %}
+                    <p>이름 : {{ prof_data["ko_name"] }}</p>
+                    <p>영어이름 : {{ prof_data["en_name"]}}</p>
+                    <p>지위 : {{ prof_data["status"] }}</p>
+                    <p>연구실 : {{ prof_data["location"] }}</p>
+                    <p>핸드폰번호 : {{ prof_data["phone"] }}</p>
+                    <p>이메일 : {{ prof_data["email"] }}</p>
+                    <p>사진주소 : {{ prof_data["photo"] }}</p>
                 </div>
             </div>
         </div>

@@ -6,5 +6,13 @@
 </head>
 <body>
     <p>Hello Flask ~~~~</p>
+    <p>교수</p>
+        {% for name in prof_list %}
+            <li>{{ name }}</li>
+        {% endfor %}
+    <p>명예 교수</p>
+        {% for name in honor_list %}
+            <li>{{ name }}</li>
+        {% endfor %}
 </body>
 </html>

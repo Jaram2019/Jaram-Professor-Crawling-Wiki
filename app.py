@@ -17,6 +17,14 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+# Crawling Data
+ip_adjunct_data = ip.get_adjunct()
+ip_prof_data = ip.get_prof()
+
+sp_adjunct_data = sp.get_adjunct()
+sp_prof_data = sp.get_prof()
+sp_honor_data = sp.get_honor()
+
 
 def find_in_dict(dict_, find_value, f="key"):
     if f == "key":
@@ -33,16 +41,19 @@ def find_in_dict(dict_, find_value, f="key"):
 
 @app.route("/")
 def root():
-    prof_list = ["김나연", "박창선", "정병길", "정회성"]
-    honor_list = ["a", "b", "c", "d"]
+    soft_prof_list = sp_prof_data[0]
+    soft_honor_list = sp_honor_data[0]
+    soft_adjunct_list = sp_adjunct_data[0]
 
-    # sp.get_adjunct()
-    # sp.get_prof()
-    # sp.get_honor()
-    #
-    # ip.get_prof()
-    # ip.get_adjunct()
-    return render_template("index.html", prof_list=prof_list, honor_list=honor_list)
+    ict_adjunct_list = ip_adjunct_data[0]
+    ict_prof_list = ip_prof_data[0]
+
+    return render_template("index.html",
+                           soft_prof_list=soft_prof_list,
+                           soft_honor_list=soft_honor_list,
+                           soft_adjunct_list=soft_adjunct_list,
+                           ict_adjunct_list=ict_adjunct_list,
+                           ict_prof_list=ict_prof_list)
 
 
 @app.route("/software_professor/<name>")

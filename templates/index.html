@@ -6,13 +6,27 @@
 </head>
 <body>
     <p>Hello Flask ~~~~</p>
+    <h1>소프트웨어학부</h1>
     <p>교수</p>
-        {% for name in prof_list %}
+        {% for name in soft_prof_list %}
             <li>{{ name }}</li>
         {% endfor %}
     <p>명예 교수</p>
-        {% for name in honor_list %}
+        {% for name in soft_honor_list %}
             <li>{{ name }}</li>
         {% endfor %}
+    <p>조 교수</p>
+        {% for name in soft_adjunct_list_list %}
+            <li>{{ name }}</li>
+        {% endfor %}
+    <h1>ICT융합학부</h1>
+    <p>교수</p>
+        {% for name in ict_prof_list %}
+            <li>{{ name }}</li>
+        {% endfor %}
+    <p>조교수</p>
+    {% for name in ict_adjunct_list %}
+        <li>{{ name }}</li>
+    {% endfor %}
 </body>
 </html>

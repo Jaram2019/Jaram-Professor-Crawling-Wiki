@@ -26,7 +26,10 @@ def get_adjunct():
             elif th.string == "위치":
                 location.append(th.next_sibling.next_sibling.string)
             elif th.string == "이메일":
-                email.append(th.next_sibling.next_sibling.find('a')['href'])
+                e = th.next_sibling.next_sibling.find('a').next_element.next_element.string
+                e = e.replace(" ", "")
+                e = e.replace("\t", "")
+                email.append(e)
             elif th.string == "전화번호":
                 call.append(th.next_sibling.next_sibling.next_element.next_element.string)
 
@@ -56,7 +59,10 @@ def get_prof():
             elif th.string == "위치":
                 location.append(th.next_sibling.next_sibling.string)
             elif th.string == "이메일":
-                email.append(th.next_sibling.next_sibling.find('a')['href'])
+                e = th.next_sibling.next_sibling.find('a').next_element.next_element.string
+                e = e.replace(" ", "")
+                e = e.replace("\t", "")
+                email.append(e)
             elif th.string == "전화번호":
                 call.append(th.next_sibling.next_sibling.next_element.next_element.string)
 

@@ -9,6 +9,7 @@ def get_adjunct():
         html = response.read()
         soup = BeautifulSoup(html, 'html.parser')
 
+    photo = []
     name_kor = []
     name_eng = []
     position = []
@@ -16,6 +17,7 @@ def get_adjunct():
 
     for x in soup.find_all("td", class_="organ_list"):
         name_kor.append(x.find("td", class_="or_name").string)
+        photo.append(x.find("img")["src"])
         for th in x.find_all("th", class_="or_tit"):
             if th.string == "영문명":
                 name_eng.append(th.next_sibling.next_sibling.string)
@@ -27,7 +29,7 @@ def get_adjunct():
                 e = e.replace("\t", "")
                 email.append(e)
 
-    return name_kor, name_eng, position, email
+    return name_kor, name_eng, position, email, photo
 
 
 def get_honor():
@@ -36,12 +38,14 @@ def get_honor():
         html = response.read()
         soup = BeautifulSoup(html, 'html.parser')
 
+    photo = []
     name_kor = []
     name_eng = []
     email = []
 
     for x in soup.find_all("td", class_="organ_list"):
         name_kor.append(x.find("td", class_="or_name").string)
+        photo.append(x.find("img")["src"])
         for th in x.find_all("th", class_="or_tit"):
             if th.string == "영문명":
                 name_eng.append(th.next_sibling.next_sibling.string)
@@ -51,7 +55,7 @@ def get_honor():
                 e = e.replace("\t", "")
                 email.append(e)
 
-    return name_kor, name_eng, email
+    return name_kor, name_eng, email, photo
 
 
 def get_prof():
@@ -60,6 +64,7 @@ def get_prof():
         html = response.read()
         soup = BeautifulSoup(html, 'html.parser')
 
+    photo = []
     name_kor = []
     name_eng = []
     position = []
@@ -68,6 +73,7 @@ def get_prof():
 
     for x in soup.find_all("td", class_="organ_list"):
         name_kor.append(x.find("td", class_="or_name").string)
+        photo.append(x.find("img")["src"])
         for th in x.find_all("th", class_="or_tit"):
             if th.string == "영문명":
                 name_eng.append(th.next_sibling.next_sibling.string)
@@ -81,4 +87,4 @@ def get_prof():
                 e = e.replace("\t", "")
                 email.append(e)
 
-    return name_kor, name_eng, position, location, email
+    return name_kor, name_eng, position, location, email, photo

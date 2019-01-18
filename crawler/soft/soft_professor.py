@@ -22,9 +22,12 @@ def get_adjunct():
             elif th.string == "직위":
                 position.append(th.next_sibling.next_sibling.string)
             elif th.string == "이메일":
-                email.append(th.next_sibling.next_sibling.find('a')['href'])
+                e = th.next_sibling.next_sibling.find('a').next_element.next_element.string
+                e = e.replace(" ", "")
+                e = e.replace("\t", "")
+                email.append(e)
 
-        return name_kor, name_eng, position, email
+    return name_kor, name_eng, position, email
 
 
 def get_honor():
@@ -43,9 +46,12 @@ def get_honor():
             if th.string == "영문명":
                 name_eng.append(th.next_sibling.next_sibling.string)
             elif th.string == "이메일":
-                email.append(th.next_sibling.next_sibling.find('a')['href'])
+                e = th.next_sibling.next_sibling.find('a').next_element.next_element.string
+                e = e.replace(" ", "")
+                e = e.replace("\t", "")
+                email.append(e)
 
-        return name_kor, name_eng, email
+    return name_kor, name_eng, email
 
 
 def get_prof():
@@ -70,6 +76,9 @@ def get_prof():
             elif th.string == "위치":
                 location.append(th.next_sibling.next_sibling.string)
             elif th.string == "이메일":
-                email.append(th.next_sibling.next_sibling.find('a')['href'])
+                e = th.next_sibling.next_sibling.find('a').next_element.next_element.string
+                e = e.replace(" ", "")
+                e = e.replace("\t", "")
+                email.append(e)
 
     return name_kor, name_eng, position, location, email

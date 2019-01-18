@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Jaram 교수위키</title>
+        <link href="{{ url_for('static', filename='css/dropdownsidenav.css') }}" type="text/css" rel="stylesheet" />
+        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    </head>
+    <script>
+        window.onload = function () {
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+
+            for (i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
+            }
+        }
+    </script>
+    <body>
+        <div class="h">
+
+        </div>
+        <div class="b">
+            <div class="sidenav">
+                <button class="dropdown-btn">SW 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="#">교수</a>
+                    <a href="#">명예교수</a>
+                    <a href="#">겸임교수</a>
+                </div>
+                <button class="dropdown-btn">ICT 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="#">교수</a>
+                    <a href="#">명예교수</a>
+                    <a href="#">겸임교수</a>
+                </div>
+            </div>
+            <div class="contents">
+
+            </div>
+        </div>
+        
+    </body>
+</html>

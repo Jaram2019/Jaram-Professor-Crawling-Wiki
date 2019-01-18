@@ -187,18 +187,32 @@ def render_ict_professor_controller(name):
                            prof_data=prof_data)
 
 
-@app.route("/wiki", methods=["GET", "POST"])
-def input_wiki_to_db():
+@app.route("/wiki/get", methods=["GET"])
+def get_wiki_context():
     # When init rendering the page (at first)
-    if request.method == "GET":
-        pass
-    # When put context to DB
-    elif request.method == "POST":
-        name = request.form["prof_name"]
-        context = request.form["context"]
+    name = request.args.get("prof_name")
+    # 여기에 db 함수 넣을 것
 
-    context_list = ["ㅎㅇㅎㅇ", "테스트~~~"]  # db 결과 받아 올 것
-    res = json.dumps({"context_list": context_list})
+    # print(name)
+
+    context = "교수님 좋아요 ~~~~"  # db 결과 받아 올 것
+
+    res = json.dumps({"context": context})
+
+    return Response(res, status=200, mimetype="application/json")
+
+
+@app.route("/wiki/write", methods=["POST"])
+def write_wiki_context():
+    name = request.form["prof_name"]
+    context = request.form["context"]
+
+    # context = context  # db 결과 받아 올 것
+    # 여기에 db 함수 넣을 것
+
+    # print(context)
+
+    res = json.dumps({"context": context})
 
     return Response(res, status=200, mimetype="application/json")
 

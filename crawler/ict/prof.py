@@ -14,7 +14,7 @@ call=[]
 email=[]
 
 for x in soup.find_all("td", class_="organ_list"):
-	name_kor.append(x.find("td", class_="or_name").string)
+	name_kor.append(x.find("td", class_="or_name").find('a').string)
 	for th in x.find_all("th", class_="or_tit"):
 		if th.string=="영문명":
 			name_eng.append(th.next_sibling.next_sibling.string)

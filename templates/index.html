@@ -39,7 +39,7 @@
                     </button>
                     <div class="dropdown-container">
                         {% for name in soft_prof_list %}
-                            <li>{{ name }}</li>
+                            <a href="software_professor/{{ name }}">{{ name }}</a>
                         {% endfor %}
                     </div>
 
@@ -48,7 +48,7 @@
                     </button>
                     <div class="dropdown-container">
                         {% for name in soft_honor_list %}
-                            <li>{{ name }}</li>
+                            <a href="software_professor/{{ name }}">{{ name }}</a>
                         {% endfor %}
                     </div>
 
@@ -57,7 +57,7 @@
                     </button>
                     <div class="dropdown-container">
                         {% for name in soft_adjunct_list_list %}
-                            <li>{{ name }}</li>
+                            <a href="software_professor/{{ name }}">{{ name }}</a>
                         {% endfor %}
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                     </button>
                     <div class="dropdown-container">
                         {% for name in ict_prof_list %}
-                            <li>{{ name }}</li>
+                            <a href="ict_professor/{{ name }}">{{ name }}</a>
                         {% endfor %}
                     </div>
 
@@ -81,7 +81,7 @@
                     </button>
                     <div class="dropdown-container">
                         {% for name in ict_adjunct_list %}
-                            <li>{{ name }}</li>
+                            <a href="ict_professor/{{ name }}">{{ name }}</a>
                         {% endfor %}
                     </div>
                 </div>

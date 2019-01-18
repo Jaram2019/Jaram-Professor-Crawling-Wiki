@@ -29,17 +29,17 @@ ip_adjunct_data = ip.get_adjunct()
 ip_prof_data = ip.get_prof()
 
 
-# def find_in_dict(dict_, find_value, f="key"):
-#     if f == "key":
-#         for key, value in dict_.items():
-#             if find_value == value:
-#                 return key
-#     elif f == "value":
-#         for key, value in dict_.items():
-#             if find_value == key:
-#                 return value
-#
-#     return "No Value"
+def find_in_dict(dict_, find_value, f="key"):
+    if f == "key":
+        for key, value in dict_.items():
+            if find_value == value:
+                return key
+    elif f == "value":
+        for key, value in dict_.items():
+            if find_value == key:
+                return value
+
+    return "No Value"
 
 
 @app.route("/")
@@ -99,11 +99,11 @@ def render_software_professor_controller(name):
         elif i == 4:
             email = prof_list[i][prof_count]
 
-    prof_data = [{"ko_name": ko_name,
-                  "en_name": en_name,
-                  "status": status,
-                  "location": location,
-                  "email": email}]
+    prof_data = {"ko_name": ko_name,
+                 "en_name": en_name,
+                 "status": status,
+                 "location": location,
+                 "email": email}
 
     return render_template("professor_info.html", prof_data=prof_data)
 
@@ -149,12 +149,12 @@ def render_ict_professor_controller(name):
         elif i == 5:
             email = prof_list[i][prof_count]
 
-    prof_data = [{"ko_name": ko_name,
-                  "en_name": en_name,
-                  "status": status,
-                  "location": location,
-                  "phone": phone,
-                  "email": email}]
+    prof_data = {"ko_name": ko_name,
+                 "en_name": en_name,
+                 "status": status,
+                 "location": location,
+                 "phone": phone,
+                 "email": email}
 
     return render_template("professor_info.html", prof_data=prof_data)
 

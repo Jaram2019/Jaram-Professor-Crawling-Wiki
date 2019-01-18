@@ -16,6 +16,9 @@ for x in soup.find_all("td", class_="organ_list"):
 		if th.string=="영문명":
 			name_eng.append(th.next_sibling.next_sibling.string)
 		elif th.string=="이메일":
-			email.append(th.next_sibling.next_sibling.find('a')['href'])
+			e=th.next_sibling.next_sibling.find('a').next_element.next_element.string
+			e=e.replace(" ", "")
+			e=e.replace("\t", "")
+			email.append(e)
 
 	return name_kor, name_eng, email

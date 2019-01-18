@@ -1,5 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Jaram 교수위키</title>
+        <link href="{{ url_for('static', filename='css/dropdownsidenav.css') }}" type="text/css" rel="stylesheet" />
+        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    </head>
+    <script>
+        window.onload = function () {
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+
+            for (i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
+            }
+        }
+    </script>
+    <body>
+        <div class="h">
+                <img class="main_img" src="/static/img/책 하냥2.png" width="900" height="220" style="margin-left: auto; margin-right: auto; display: block;">
+        </div>
+        <div class="b">
+            <div class="sidenav">
+                <button class="dropdown-btn">소프트웨어학부
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <button class="dropdown-btn">교수 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        {% for name in soft_prof_list %}
+                            <a href="/software_professor/{{ name }}">{{ name }}</a>
+                        {% endfor %}
+                    </div>
+
+                    <button class="dropdown-btn">명예교수
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        {% for name in soft_honor_list %}
+                            <a href="/software_professor/{{ name }}">{{ name }}</a>
+                        {% endfor %}
+                    </div>
+
+                    <button class="dropdown-btn">겸임교수
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        {% for name in soft_adjunct_list_list %}
+                            <a href="/software_professor/{{ name }}">{{ name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+                <button class="dropdown-btn">ICT 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <button class="dropdown-btn">교수 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        {% for name in ict_prof_list %}
+                            <a href="/ict_professor/{{ name }}">{{ name }}</a>
+                        {% endfor %}
+                    </div>
+
+                    <button class="dropdown-btn">겸임교수
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        {% for name in ict_adjunct_list %}
+                            <a href="/ict_professor/{{ name }}">{{ name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="contents">
+                <div class = "info">
+                    {% for data in prof_data %}
+                        <p>이름 : {{ data["ko_name"] }}</p>
+                        <p>영어이름 : {{ data["en_name"]}}</p>
+                        <p>지위 : {{ data["status"] }}</p>
+                        <p>연구실 : {{ data["location"] }}</p>
+                        <p>핸드폰번호 : {{ data["phone"] }}</p>
+                        <p>이메일 : {{ data["email"] }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Professor Info</title>
@@ -16,4 +121,4 @@
         {% endfor %}
     </div>
 </body>
-</html>
+</html> -->

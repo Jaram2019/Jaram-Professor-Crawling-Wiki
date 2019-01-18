@@ -5,25 +5,27 @@
         <title>Jaram 교수위키</title>
         <link href="{{ url_for('static', filename='css/dropdownsidenav.css') }}" type="text/css" rel="stylesheet" />
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    </head>
-    <script>
-        window.onload = function () {
-            var dropdown = document.getElementsByClassName("dropdown-btn");
-            var i;
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="{{ url_for('static', filename='js/wiki.js') }}"></script>
+        <script>
+            window.onload = function () {
+                var dropdown = document.getElementsByClassName("dropdown-btn");
+                var i;
 
-            for (i = 0; i < dropdown.length; i++) {
-                dropdown[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    var dropdownContent = this.nextElementSibling;
-                    if (dropdownContent.style.display === "block") {
-                        dropdownContent.style.display = "none";
-                    } else {
-                        dropdownContent.style.display = "block";
-                    }
-                });
+                for (i = 0; i < dropdown.length; i++) {
+                    dropdown[i].addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        var dropdownContent = this.nextElementSibling;
+                        if (dropdownContent.style.display === "block") {
+                            dropdownContent.style.display = "none";
+                        } else {
+                            dropdownContent.style.display = "block";
+                        }
+                    });
+                }
             }
-        }
-    </script>
+        </script>
+    </head>
     <body>
         <div class="h">
                 <img class="main_img" src="/static/img/책 하냥2.png" width="900" height="220" style="margin-left: auto; margin-right: auto; display: block;">
@@ -88,7 +90,7 @@
             </div>
             <div class="contents">
                 <div class = "info">
-                    <p>이름 : {{ prof_data["ko_name"] }}</p>
+                    <p id="prof_name">이름 : {{ prof_data["ko_name"] }}</p>
                     <p>영어이름 : {{ prof_data["en_name"]}}</p>
                     <p>지위 : {{ prof_data["status"] }}</p>
                     <p>연구실 : {{ prof_data["location"] }}</p>
@@ -98,7 +100,13 @@
                 </div>
             </div>
         </div>
-        
+        {# Wiki #}
+        <hr>
+        <h3>Wiki <button id="wiki_write_btn">위키 작성</button></h3>
+        <div id="wiki">
+            <textarea id="context" readonly="readonly" rows="15" cols="80" style="border: 0; resize: none;"></textarea>
+            <input type="hidden" id="switch" value="False"/>
+        </div>
     </body>
 </html>
 

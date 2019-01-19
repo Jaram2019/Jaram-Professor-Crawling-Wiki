@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import urllib.request
 import urllib.parse
 
+url="http://ict.hanyang.ac.kr"
 
 def get_adjunct():
     with urllib.request.urlopen(
@@ -19,7 +20,8 @@ def get_adjunct():
 
     for x in soup.find_all("td", class_="organ_list"):
         name_kor.append(x.find("td", class_="or_name").find('a').string)
-        photo.append(x.find("img")["src"])
+        phourl=url+x.find("img")["src"]
+        photo.append(phourl)
         for th in x.find_all("th", class_="or_tit"):
             if th.string == "영문명":
                 name_eng.append(th.next_sibling.next_sibling.string)
@@ -54,7 +56,8 @@ def get_prof():
 
     for x in soup.find_all("td", class_="organ_list"):
         name_kor.append(x.find("td", class_="or_name").find('a').string)
-        photo.append(x.find("img")["src"])
+        phourl=url+x.find("img")["src"]
+        photo.append(phourl)
         for th in x.find_all("th", class_="or_tit"):
             if th.string == "영문명":
                 name_eng.append(th.next_sibling.next_sibling.string)
@@ -69,5 +72,6 @@ def get_prof():
                 email.append(e)
             elif th.string == "전화번호":
                 call.append(th.next_sibling.next_sibling.next_element.next_element.string)
-
     return name_kor, name_eng, position, location, call, email, photo
+
+

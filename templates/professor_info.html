@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <title>Jaram 교수위키</title>
         <link href="{{ url_for('static', filename='css/dropdownsidenav.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='css/wikibutton.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='css/prof_body.css') }}" type="text/css" rel="stylesheet" />
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
         <script src="{{ url_for('static', filename='js/wiki.js') }}"></script>
@@ -89,24 +91,39 @@
                 </div>
             </div>
             <div class="contents">
-                <div class = "info">
-                    <p id="prof_name">이름 : {{ prof_data["ko_name"] }}</p>
-                    <p>영어이름 : {{ prof_data["en_name"]}}</p>
-                    <p>지위 : {{ prof_data["status"] }}</p>
-                    <p>연구실 : {{ prof_data["location"] }}</p>
-                    <p>핸드폰번호 : {{ prof_data["phone"] }}</p>
-                    <p>이메일 : {{ prof_data["email"] }}</p>
-                    <p>사진주소 : {{ prof_data["photo"] }}</p>
+                <table class="info">
+                    <tr>
+                        <h3 id="prof_name">{{ prof_data["ko_name"] }} 교수님</h3>
+                    </tr>
+                    <tr>
+                        <td id="first"><img id="prof_img" src=" {{ prof_data["photo"] }}" height="210"></td>
+                        <td>
+                            <p>영어이름 : {{ prof_data["en_name"]}}</p>
+                            <p>지위 : {{ prof_data["status"] }}</p>
+                            <p>연구실 : {{ prof_data["location"] }}</p>
+                            <p>핸드폰번호 : {{ prof_data["phone"] }}</p>
+                            <p>이메일 : {{ prof_data["email"] }}</p>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class = "wiki">
+                    {# Wiki #}
+                    <hr>
+                    <table class="wikitable">
+                        <tr>
+                            <td id="wikih3"><h3>Wiki</h3></td>
+                            <td><button id="wiki_write_btn">위키 작성</button></td>
+                        </tr>                        
+                    </table>
+                    <div id="wiki">
+                        <textarea id="context" readonly="readonly" rows="15" cols="80" style="border: 0; resize: none; width : 80%;"></textarea>
+                        <input type="hidden" id="switch" value="False"/>
+                    </div>
                 </div>
             </div>
         </div>
-        {# Wiki #}
-        <hr>
-        <h3>Wiki <button id="wiki_write_btn">위키 작성</button></h3>
-        <div id="wiki">
-            <textarea id="context" readonly="readonly" rows="15" cols="80" style="border: 0; resize: none;"></textarea>
-            <input type="hidden" id="switch" value="False"/>
-        </div>
+        
     </body>
 </html>
 

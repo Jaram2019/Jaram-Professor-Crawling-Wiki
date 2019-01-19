@@ -1,0 +1,52 @@
+/* html,body{
+    height:100%;
+}
+body{
+    text-align:center;
+}
+body:before{
+    content:'';
+    height:100%;
+    display:inline-block;
+    vertical-align:middle;
+} */
+
+#wiki_write_btn{
+    float : right;
+    background:rgb(62, 107, 202);
+    color:#fff;
+    border:none;
+    position:relative;
+    height:40px;
+    font-size:1.0em;
+    padding:0 1em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    margin-left : 0px;
+}
+#wiki_write_btn:hover{
+    background:#fff;
+    color:rgb(62, 107, 202);
+}
+#wiki_write_btn:before,#wiki_write_btn:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: rgb(62, 107, 202);
+    transition:400ms ease all;
+}
+#wiki_write_btn:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+#wiki_write_btn:hover:before,#wiki_write_btn:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}
+

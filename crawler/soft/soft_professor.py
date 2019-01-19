@@ -31,7 +31,11 @@ def get_adjunct():
                 e = e.replace("\t", "")
                 email.append(e)
 
-    return name_kor, name_eng, position, email, photo
+    return {"name_kor": name_kor,
+            "name_eng": name_eng,
+            "position": position,
+            "email": email,
+            "photo": photo}
 
 
 def get_honor():
@@ -58,7 +62,10 @@ def get_honor():
                 e = e.replace("\t", "")
                 email.append(e)
 
-    return name_kor, name_eng, email, photo
+    return {"name_kor": name_kor,
+            "name_eng": name_eng,
+            "email": email,
+            "photo": photo}
 
 
 def get_prof():
@@ -91,6 +98,9 @@ def get_prof():
                 e = e.replace("\t", "")
                 email.append(e)
 
-    return name_kor, name_eng, position, location, email, photo
-
-
+    return {"name_kor": name_kor,
+            "name_eng": name_eng,
+            "position": position,
+            "location": location,
+            "email": email,
+            "photo": photo}

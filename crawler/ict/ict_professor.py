@@ -37,7 +37,13 @@ def get_adjunct():
             elif th.string == "전화번호":
                 call.append(th.next_sibling.next_sibling.next_element.next_element.string)
 
-    return name_kor, name_eng, position, location, call, email, photo
+    return {"name_kor": name_kor,
+            "name_eng": name_eng,
+            "position": position,
+            "location": location,
+            "call": call,
+            "email": email,
+            "photo": photo}
 
 
 def get_prof():
@@ -72,6 +78,12 @@ def get_prof():
                 email.append(e)
             elif th.string == "전화번호":
                 call.append(th.next_sibling.next_sibling.next_element.next_element.string)
-    return name_kor, name_eng, position, location, call, email, photo
+    return {"name_kor": name_kor,
+            "name_eng": name_eng,
+            "position": position,
+            "location": location,
+            "call": call,
+            "email": email,
+            "photo": photo}
 
 

@@ -88,13 +88,19 @@
             </div>
             <div class="contents">
                 <div class = "info">
-                    <p>이름 : {{ prof_data["ko_name"] }}</p>
-                    <p>영어이름 : {{ prof_data["en_name"]}}</p>
-                    <p>지위 : {{ prof_data["status"] }}</p>
-                    <p>연구실 : {{ prof_data["location"] }}</p>
-                    <p>핸드폰번호 : {{ prof_data["phone"] }}</p>
-                    <p>이메일 : {{ prof_data["email"] }}</p>
-                    <p>사진주소 : {{ prof_data["photo"] }}</p>
+                    <div class = "info_img">
+                        <img class="prof_img" src="{{ prof_data["photo"] }}"  height="160">
+                    </div>
+                    <div class = "info_text">
+                        <p>이름 : {{ prof_data["ko_name"] }}</p>
+                        <p>영어이름 : {{ prof_data["en_name"]}}</p>
+                        <p>지위 : {{ prof_data["status"] }}</p>
+                        <p>연구실 : {{ prof_data["location"] }}</p>
+                        <p>핸드폰번호 : {{ prof_data["phone"] }}</p>
+                        <p>이메일 : {{ prof_data["email"] }}</p>
+                        <p>사진주소 : {{ prof_data["photo"] }}</p>
+                    </div>
+                    
                 </div>
             </div>
         </div>

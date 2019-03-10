@@ -13,9 +13,9 @@ $(document).ready(function() {
 
     // When init rendering page (at first)
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: "/wiki/get",
-        data: {prof_name: $("#prof_name").val()},
+        data: {prof_name: $("#prof_name").text()},
         datatype: "JSON",
         success: function(data) {
             context = data["context"];
@@ -38,7 +38,7 @@ $(document).ready(function() {
                 type: "POST",
                 url: "/wiki/write",
                 data: {
-                    prof_name: $("#prof_name").val(),
+                    prof_name: $("#prof_name").text(),
                     context: $("#context").val()
                 },
                 datatype: "JSON",

@@ -10,7 +10,7 @@
 
 ![main](https://github.com/Jaram2019/Jaram-Professor-Crawler/blob/master/github/img/main.png)
 
-한양대학교 ERICA 홈페이지를 크롤링하여 만든 Wiki 웹 어플리케이션  
+__한양대학교 ERICA 홈페이지를 크롤링하여 만든 Wiki 웹 어플리케이션__  
 - Flask 기반의 Backend
 - sqlite3 기반의 Database
 - BeautifulSoup 와 urllib 를 이용한 Crawling 구현
@@ -19,9 +19,9 @@
 - SQLAlchemy 를 이용한 ORM 활용
 - MVC 패턴 분리
 
-### 1. Install package
+## 1. Install package
 `pip install -r requirements.txt`
 
-### 2. Run
+## 2. Run
 `python app.py`
 - port: 9999

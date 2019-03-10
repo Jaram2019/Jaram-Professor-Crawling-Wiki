@@ -5,28 +5,11 @@
         <title>Jaram 교수위키</title>
         <link href="{{ url_for('static', filename='css/dropdownsidenav.css') }}" type="text/css" rel="stylesheet" />
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/dropdown.js') }}"></script>
     </head>
-    <script>
-        window.onload = function () {
-            var dropdown = document.getElementsByClassName("dropdown-btn");
-            var i;
-
-            for (i = 0; i < dropdown.length; i++) {
-                dropdown[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    var dropdownContent = this.nextElementSibling;
-                    if (dropdownContent.style.display === "block") {
-                        dropdownContent.style.display = "none";
-                    } else {
-                        dropdownContent.style.display = "block";
-                    }
-                });
-            }
-        }
-    </script>
     <body>
         <div class="h">
-                <img class="main_img" src="/static/img/책 하냥2.png" width="900" height="220" style="margin-left: auto; margin-right: auto; display: block;">
+            <img class="main_img" src="/static/img/책 하냥2.png" width="900" height="220" style="margin-left: auto; margin-right: auto; display: block;">
         </div>
         <div class="b">
             <div class="sidenav">
@@ -42,7 +25,6 @@
                             <a href="/software_professor/{{ name }}">{{ name }}</a>
                         {% endfor %}
                     </div>
-
                     <button class="dropdown-btn">명예교수
                         <i class="fa fa-caret-down"></i>
                     </button>
@@ -51,18 +33,15 @@
                             <a href="/software_professor/{{ name }}">{{ name }}</a>
                         {% endfor %}
                     </div>
-
                     <button class="dropdown-btn">겸임교수
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                        {% for name in soft_adjunct_list_list %}
+                        {% for name in soft_adjunct_list %}
                             <a href="/software_professor/{{ name }}">{{ name }}</a>
                         {% endfor %}
                     </div>
                 </div>
-
-
                 <button class="dropdown-btn">ICT 
                     <i class="fa fa-caret-down"></i>
                 </button>
@@ -75,7 +54,6 @@
                             <a href="/ict_professor/{{ name }}">{{ name }}</a>
                         {% endfor %}
                     </div>
-
                     <button class="dropdown-btn">겸임교수
                         <i class="fa fa-caret-down"></i>
                     </button>
@@ -90,26 +68,5 @@
                 한양대 에리카 소융대의 교수 위키
             </div>
         </div>
-        
     </body>
 </html>
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Hello Flask</title>
-</head>
-<body>
-    <p>Hello Flask ~~~~</p>
-    <p>교수</p>
-        {% for name in prof_list %}
-            <li>{{ name }}</li>
-        {% endfor %}
-    <p>명예 교수</p>
-        {% for name in honor_list %}
-            <li>{{ name }}</li>
-        {% endfor %}
-</body>
-</html> -->
